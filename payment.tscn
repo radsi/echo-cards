@@ -1,0 +1,266 @@
+[gd_scene load_steps=18 format=3 uid="uid://maeu508jng2e"]
+
+[ext_resource type="Script" uid="uid://4rb3rx1n7n0f" path="res://scripts/payment_manager.gd" id="1_7mjkq"]
+[ext_resource type="Texture2D" uid="uid://drddckqx0v40j" path="res://deco/devil.png" id="1_mqal0"]
+[ext_resource type="Texture2D" uid="uid://bax4iun2grdpj" path="res://deco/red.png" id="2_0xs1l"]
+[ext_resource type="Texture2D" uid="uid://b0lfl1re3uea3" path="res://deco/hand_left.png" id="4_kqj2f"]
+[ext_resource type="FontFile" uid="uid://bsucljrt1mjt" path="res://PressStart2P-vaV7.ttf" id="4_prf03"]
+[ext_resource type="Shader" uid="uid://cxdqnkjkxbe5a" path="res://chat.gdshader" id="4_w8rcl"]
+[ext_resource type="Texture2D" uid="uid://7hfjfok3e08f" path="res://deco/hand_right.png" id="5_prf03"]
+[ext_resource type="Texture2D" uid="uid://cnh7p8837d1uf" path="res://buttons/button-long.png" id="8_a30yt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mqal0"]
+
+[sub_resource type="Gradient" id="Gradient_mqal0"]
+offsets = PackedFloat32Array(0, 0.5644444)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0xs1l"]
+gradient = SubResource("Gradient_mqal0")
+fill = 1
+fill_from = Vector2(0.5233645, 0.48286605)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a30yt"]
+shader = ExtResource("4_w8rcl")
+shader_parameter/height = 3.0
+shader_parameter/frequency = 20.0
+shader_parameter/speed = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fs725"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efqod"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8xnvv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mre7o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rku0s"]
+
+[node name="Payment" type="Node2D"]
+script = ExtResource("1_7mjkq")
+
+[node name="TransitionBG" type="ColorRect" parent="."]
+z_index = 15
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(49.35224, 31.214497)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(49.35224, 31.214497)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 1
+offset_top = 415.0
+offset_right = 40.0
+offset_bottom = 455.0
+scale = Vector2(49.35224, 31.214497)
+color = Color(0, 0, 0, 1)
+
+[node name="Devil" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.2509804)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_mqal0")
+position = Vector2(971, 348)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_mqal0")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Devil"]
+
+[node name="Red" type="Sprite2D" parent="Devil/CanvasGroup"]
+position = Vector2(212, -368)
+texture = ExtResource("2_0xs1l")
+
+[node name="PointLight2D" type="PointLight2D" parent="Devil/CanvasGroup"]
+z_index = 5
+texture_filter = 1
+position = Vector2(212, -372)
+scale = Vector2(4, 4)
+color = Color(0, 0.6790685, 0.768867, 1)
+energy = 0.0
+blend_mode = 1
+texture = SubResource("GradientTexture2D_0xs1l")
+texture_scale = 1.5
+
+[node name="Chat" type="RichTextLabel" parent="Devil"]
+z_index = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_a30yt")
+anchors_preset = -1
+anchor_left = -0.036000002
+anchor_top = 0.563
+anchor_right = 1.057
+anchor_bottom = 0.855
+offset_left = -1175.436
+offset_top = -1199.2001
+offset_right = -1174.8931
+offset_bottom = -1200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_prf03")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+position = Vector2(-3, 396)
+
+[node name="HandLeft" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(474.5, 353)
+texture = ExtResource("4_kqj2f")
+
+[node name="HandRight" type="Sprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(1449, 367)
+texture = ExtResource("5_prf03")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 185.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 128
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PayButton" type="Button" parent="Control/HBoxContainer"]
+self_modulate = Color(0.79487544, 0.79487526, 7.70092e-07, 1)
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme_override_colors/icon_pressed_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fs725")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efqod")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8xnvv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mre7o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rku0s")
+icon = ExtResource("8_a30yt")
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="Control/HBoxContainer/PayButton"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.600006
+offset_top = -17.600006
+offset_right = 46.399994
+offset_bottom = 14.399994
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 16)
+theme_override_fonts/font = ExtResource("4_prf03")
+theme_override_font_sizes/font_size = 32
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/HBoxContainer/PayButton/ButtonLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 103.000015
+offset_bottom = 35.0
+pivot_offset = Vector2(48, 16)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_prf03")
+theme_override_font_sizes/font_size = 32
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Control/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_prf03")
+theme_override_font_sizes/font_size = 64
+text = "OR"
+
+[node name="SoulButton" type="Button" parent="Control/HBoxContainer"]
+self_modulate = Color(0.9999222, 0.23098883, 0.34493405, 1)
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme_override_colors/icon_pressed_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fs725")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_efqod")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8xnvv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mre7o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rku0s")
+icon = ExtResource("8_a30yt")
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="Control/HBoxContainer/SoulButton"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.600006
+offset_top = -17.600006
+offset_right = 46.399994
+offset_bottom = 14.399994
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 16)
+theme_override_fonts/font = ExtResource("4_prf03")
+theme_override_font_sizes/font_size = 32
+text = "SOUL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/HBoxContainer/SoulButton/ButtonLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 103.000015
+offset_bottom = 35.0
+pivot_offset = Vector2(48, 16)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_prf03")
+theme_override_font_sizes/font_size = 32
+text = "SOUL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/HBoxContainer/PayButton" to="." method="_on_pay_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/SoulButton" to="." method="_on_soul_button_pressed"]

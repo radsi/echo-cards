@@ -1,0 +1,1128 @@
+[gd_scene load_steps=39 format=3 uid="uid://wxy8m0gmbcvs"]
+
+[ext_resource type="Script" uid="uid://btm7h66giundr" path="res://scripts/player_cards.gd" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://dsoi4mltb7ues" path="res://scripts/env_manager.gd" id="1_fc0e3"]
+[ext_resource type="FontFile" uid="uid://bsucljrt1mjt" path="res://PressStart2P-vaV7.ttf" id="2_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://cjmiihdrylovq" path="res://buttons/button.png" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://cfj4m4locsi8f" path="res://scripts/dealer_cards.gd" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://jogsv0dks3q" path="res://scripts/shop_manager.gd" id="6_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://bxpdl1ai0m0ll" path="res://prefabs/shop_item_prefab.tscn" id="6_ryrav"]
+[ext_resource type="Script" uid="uid://bbs8y8bev3ryx" path="res://scripts/inventory.gd" id="8_hve3p"]
+[ext_resource type="Texture2D" uid="uid://cnh7p8837d1uf" path="res://buttons/button-long.png" id="8_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://divrki8jgm6x6" path="res://icon.svg" id="8_vef74"]
+[ext_resource type="Script" uid="uid://dba00gcoj700p" path="res://scripts/shop_item.gd" id="10_hve3p"]
+[ext_resource type="Texture2D" uid="uid://pydb4lgf73oq" path="res://deco/background_1.png" id="12_iotsf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5wjh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vef74"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hve3p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfdv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iotsf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_feb5d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fc0e3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7jktm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ryrav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eow3j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lc2xo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_215e1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7sc4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80cx4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e8heu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rvswv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_boyg6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e36ub"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hb5m1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5p1p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhcbd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1jbl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vaj68"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2p71"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xa8c5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5b14r"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fc0e3")
+
+[node name="Background1" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.54901963)
+z_index = -10
+position = Vector2(975.0001, 584)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("12_iotsf")
+
+[node name="PlayerCards" type="CanvasGroup" parent="."]
+script = ExtResource("1_e2o6t")
+
+[node name="ScoreLabel" type="Label" parent="PlayerCards"]
+z_index = 10
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = 680.0
+offset_right = 1911.0
+offset_bottom = 760.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="PlayerCards/ScoreLabel"]
+z_index = -10
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -37.0
+offset_right = 87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="Node2D" parent="PlayerCards"]
+position = Vector2(960, 982)
+
+[node name="RoundsLabel" type="Label" parent="PlayerCards"]
+z_index = 10
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 522.0
+offset_right = 1905.0
+offset_bottom = 602.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 38
+text = "1/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="PlayerCards/RoundsLabel"]
+z_index = -10
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -37.0
+offset_right = 87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 38
+text = "1/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DealerCards" type="CanvasGroup" parent="."]
+script = ExtResource("5_7jktm")
+max_angle = null
+radius = null
+card_spacing = null
+
+[node name="ScoreLabel" type="Label" parent="DealerCards"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 871.0
+offset_top = 344.0
+offset_right = 1031.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="DealerCards/ScoreLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -37.0
+offset_right = 87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Center" type="Node2D" parent="DealerCards"]
+position = Vector2(960, 98)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HitButton" type="Button" parent="Control"]
+self_modulate = Color(0.5568628, 1, 1, 1)
+z_index = -2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 580.0
+offset_top = 495.0
+offset_right = 760.0
+offset_bottom = 587.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(94, 46)
+theme_override_colors/icon_pressed_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j5wjh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vef74")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hve3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mfdv2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iotsf")
+icon = ExtResource("3_feb5d")
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="Control/HitButton"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.600006
+offset_top = -17.600006
+offset_right = 46.399994
+offset_bottom = 14.399994
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 16)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "HIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/HitButton/ButtonLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 103.000015
+offset_bottom = 35.0
+pivot_offset = Vector2(48, 16)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "HIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StandButton" type="Button" parent="Control"]
+self_modulate = Color(0.8117647, 0.2784314, 0.17254902, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1080.0
+offset_top = 495.0
+offset_right = 1260.0
+offset_bottom = 587.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(94, 46)
+theme_override_colors/icon_pressed_color = Color(0.43776292, 0.43776295, 0.43776277, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_feb5d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fc0e3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7jktm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ryrav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eow3j")
+icon = ExtResource("3_feb5d")
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="Control/StandButton"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.20002
+offset_top = -16.0
+offset_right = 80.79999
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 16)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "STAND"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/StandButton/ButtonLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 103.000015
+offset_bottom = 35.0
+pivot_offset = Vector2(48, 16)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "STAND"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SplitButton" type="Button" parent="Control"]
+visible = false
+self_modulate = Color(0.7869679, 0.7857752, 7.70092e-07, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 834.0001
+offset_top = 495.00006
+offset_right = 1014.0001
+offset_bottom = 587.00006
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(94, 46)
+theme_override_colors/icon_pressed_color = Color(0.43776292, 0.43776295, 0.43776277, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_feb5d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fc0e3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7jktm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ryrav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eow3j")
+icon = ExtResource("3_feb5d")
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="Control/SplitButton"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.20002
+offset_top = -16.0
+offset_right = 80.79999
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 16)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "SPLIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/SplitButton/ButtonLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 103.000015
+offset_bottom = 35.0
+pivot_offset = Vector2(48, 16)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "SPLIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftPanel" type="ColorRect" parent="Control"]
+self_modulate = Color(0.3943528, 0.39435276, 0.39435276, 0.6509804)
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 1109.0
+script = ExtResource("6_j5wjh")
+
+[node name="ShopLabel" type="Label" parent="Control/LeftPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 42.0
+offset_bottom = 106.0
+grow_horizontal = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/LeftPanel/ShopLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -37.0
+offset_right = 87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopButton" type="Button" parent="Control/LeftPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_right = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_pressed_color = Color(0.5931336, 0.59313357, 0.59313357, 1)
+theme_override_colors/font_hover_color = Color(0.7019608, 0.7019608, 0.7019608, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.7024225, 0.7024225, 0.7024223, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lc2xo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_215e1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7sc4i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_80cx4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e8heu")
+text = ">"
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/LeftPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.149
+anchor_right = 0.84000003
+anchor_bottom = 0.97400004
+offset_top = -0.24099731
+offset_right = 76.79999
+offset_bottom = 173.83398
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8400006, 0.8399994)
+theme_override_constants/separation = 30
+
+[node name="ShopItemPrefab" parent="Control/LeftPanel/VBoxContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="ShopItemPrefab2" parent="Control/LeftPanel/VBoxContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="ShopItemPrefab3" parent="Control/LeftPanel/VBoxContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="ShopItemPrefab4" parent="Control/LeftPanel/VBoxContainer" instance=ExtResource("6_ryrav")]
+layout_mode = 2
+
+[node name="ShopItemPrefab5" parent="Control/LeftPanel/VBoxContainer" instance=ExtResource("6_ryrav")]
+visible = false
+layout_mode = 2
+
+[node name="ShopItemPrefab6" parent="Control/LeftPanel/VBoxContainer" instance=ExtResource("6_ryrav")]
+visible = false
+layout_mode = 2
+
+[node name="RefreshButton" type="Button" parent="Control/LeftPanel/VBoxContainer"]
+self_modulate = Color(0.5568628, 0.5686275, 1, 1)
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/icon_pressed_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j5wjh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vef74")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hve3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mfdv2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iotsf")
+icon = ExtResource("8_mfdv2")
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="Control/LeftPanel/VBoxContainer/RefreshButton"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.600006
+offset_top = -17.600006
+offset_right = 46.399994
+offset_bottom = 14.399994
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 16)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "Refresh"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/LeftPanel/VBoxContainer/RefreshButton/ButtonLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 103.000015
+offset_bottom = 35.0
+pivot_offset = Vector2(48, 16)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "Refresh"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="Control/LeftPanel/VBoxContainer/RefreshButton"]
+self_modulate = Color(1, 0.78431374, 0, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.088
+anchor_top = 0.35700002
+anchor_right = 1.3900001
+anchor_bottom = 0.643
+offset_left = 0.12158203
+offset_top = 0.011997223
+offset_right = 0.08529663
+offset_bottom = -0.012001038
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="shadow" type="Label" parent="Control/LeftPanel/VBoxContainer/RefreshButton/PriceLabel"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042000003
+anchor_right = 0.95800006
+anchor_bottom = 1.0
+offset_left = 1.4500024
+offset_top = 2.0
+offset_right = 1.4071426
+offset_bottom = 2.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RightPanel" type="ColorRect" parent="Control"]
+self_modulate = Color(0.3943528, 0.39435276, 0.39435276, 0.6509804)
+z_index = 5
+layout_mode = 0
+offset_left = 1440.0
+offset_right = 1920.0
+offset_bottom = 1109.0
+
+[node name="StatsLabel" type="Label" parent="Control/RightPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 42.0
+offset_bottom = 106.0
+grow_horizontal = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "Stats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/RightPanel/StatsLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -37.0
+offset_right = 87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "Stats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/RightPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="HR" type="Label" parent="Control/RightPanel/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="Control/RightPanel/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 38
+text = " Cash: 250"
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/RightPanel/VBoxContainer/MoneyLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 38
+text = " Cash: 250"
+vertical_alignment = 1
+
+[node name="LuckLabel" type="Label" parent="Control/RightPanel/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 38
+text = " Luck: 1"
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/RightPanel/VBoxContainer/LuckLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 38
+text = " Luck: 1"
+vertical_alignment = 1
+
+[node name="DiscardLabel" type="Label" parent="Control/RightPanel/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 38
+text = " Discards: 0"
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/RightPanel/VBoxContainer/DiscardLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 38
+text = " Discards: 0"
+vertical_alignment = 1
+
+[node name="StreakLabel" type="Label" parent="Control/RightPanel/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 38
+text = " Streak: 0"
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="Control/RightPanel/VBoxContainer/StreakLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 5.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 38
+text = " Streak: 0"
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control/RightPanel" groups=["grid"]]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.46800002
+anchor_right = 1.0
+anchor_bottom = 0.97400004
+offset_top = -0.012023926
+offset_bottom = -0.16601563
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 36
+theme_override_constants/v_separation = 7
+columns = 3
+script = ExtResource("8_hve3p")
+
+[node name="ShopItemPrefab2" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab3" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab4" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab5" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab6" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab7" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab8" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab9" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab10" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab11" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab12" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="ShopItemPrefab13" type="Button" parent="Control/RightPanel/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rvswv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_boyg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e36ub")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hb5m1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x5p1p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qhcbd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_f1jbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vaj68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2p71")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xa8c5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5b14r")
+icon = ExtResource("8_vef74")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("10_hve3p")
+
+[node name="TransitionBG" type="ColorRect" parent="."]
+z_index = 10
+offset_top = -1366.0
+offset_right = 40.0
+offset_bottom = -1326.0
+scale = Vector2(50.679996, 33.640003)
+color = Color(0, 0, 0, 1)
+
+[connection signal="signal_restartgame" from="DealerCards" to="PlayerCards" method="_on_dealer_cards_signal_restartgame"]
+[connection signal="pressed" from="Control/HitButton" to="PlayerCards" method="_on_hit_button_pressed"]
+[connection signal="pressed" from="Control/StandButton" to="DealerCards" method="_on_stand_button_pressed"]
+[connection signal="pressed" from="Control/SplitButton" to="PlayerCards" method="_on_split_button_pressed"]
+[connection signal="pressed" from="Control/LeftPanel/ShopButton" to="Control/LeftPanel" method="_on_shop_button_pressed"]
+[connection signal="pressed" from="Control/LeftPanel/VBoxContainer/RefreshButton" to="Control/LeftPanel" method="_on_refresh_button_pressed"]

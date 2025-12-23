@@ -1,0 +1,279 @@
+[gd_scene load_steps=16 format=3 uid="uid://wxy8m0gmbcvs"]
+
+[ext_resource type="Script" uid="uid://btm7h66giundr" path="res://scripts/player_cards.gd" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://dsoi4mltb7ues" path="res://scripts/game_manager.gd" id="1_fc0e3"]
+[ext_resource type="FontFile" uid="uid://bsucljrt1mjt" path="res://PressStart2P-vaV7.ttf" id="2_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://cjmiihdrylovq" path="res://buttons/button.png" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://cfj4m4locsi8f" path="res://scripts/dealer_cards.gd" id="5_7jktm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5wjh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vef74"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hve3p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfdv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iotsf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_feb5d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fc0e3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7jktm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ryrav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eow3j"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fc0e3")
+
+[node name="Bg" type="ColorRect" parent="."]
+z_index = -10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(48.403267, 27.456247)
+color = Color(0.4446107, 0.6516075, 0.34536195, 1)
+
+[node name="PlayerCards" type="CanvasGroup" parent="."]
+script = ExtResource("1_e2o6t")
+
+[node name="ScoreLabel" type="Label" parent="PlayerCards"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 880.0
+offset_top = 680.0
+offset_right = 1040.0
+offset_bottom = 760.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="PlayerCards/ScoreLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -37.0
+offset_right = 87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="Node2D" parent="PlayerCards"]
+position = Vector2(960, 982)
+
+[node name="HitButton" type="Button" parent="PlayerCards"]
+self_modulate = Color(0.5568628, 1, 1, 1)
+z_index = -2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 600.0
+offset_top = 515.0
+offset_right = 788.0
+offset_bottom = 607.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(94, 46)
+theme_override_colors/icon_pressed_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j5wjh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vef74")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hve3p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mfdv2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iotsf")
+icon = ExtResource("3_feb5d")
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="PlayerCards/HitButton"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.600006
+offset_top = -17.600006
+offset_right = 46.399994
+offset_bottom = 14.399994
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 16)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "HIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="PlayerCards/HitButton/ButtonLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 103.000015
+offset_bottom = 35.0
+pivot_offset = Vector2(48, 16)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "HIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StandButton" type="Button" parent="PlayerCards"]
+self_modulate = Color(0.8117647, 0.2784314, 0.17254902, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1100.0
+offset_top = 515.0
+offset_right = 1288.0
+offset_bottom = 607.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(94, 46)
+theme_override_colors/icon_pressed_color = Color(0.43776292, 0.43776295, 0.43776277, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_feb5d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fc0e3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7jktm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ryrav")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eow3j")
+icon = ExtResource("3_feb5d")
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="PlayerCards/StandButton"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.00001
+offset_top = -16.0
+offset_right = 80.00001
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 16)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "STAND"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="PlayerCards/StandButton/ButtonLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 103.000015
+offset_bottom = 35.0
+pivot_offset = Vector2(48, 16)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 32
+text = "STAND"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DealerCards" type="CanvasGroup" parent="."]
+script = ExtResource("5_7jktm")
+
+[node name="ScoreLabel" type="Label" parent="DealerCards"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 880.0
+offset_top = 344.0
+offset_right = 1040.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="DealerCards/ScoreLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -37.0
+offset_right = 87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fc0e3")
+theme_override_font_sizes/font_size = 64
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="Node2D" parent="DealerCards"]
+position = Vector2(960, 98)
+
+[connection signal="pressed" from="PlayerCards/HitButton" to="PlayerCards" method="_on_hit_button_pressed"]
+[connection signal="pressed" from="PlayerCards/StandButton" to="DealerCards" method="_on_stand_button_pressed"]
+[connection signal="signal_restartgame" from="DealerCards" to="PlayerCards" method="_on_dealer_cards_signal_restartgame"]

@@ -1,0 +1,417 @@
+[gd_scene load_steps=16 format=3 uid="uid://48drlbnnbbwk"]
+
+[ext_resource type="Script" uid="uid://dsoi4mltb7ues" path="res://scripts/env_manager.gd" id="1_ftari"]
+[ext_resource type="FontFile" uid="uid://bsucljrt1mjt" path="res://PressStart2P-vaV7.ttf" id="1_y26ei"]
+[ext_resource type="Texture2D" uid="uid://divrki8jgm6x6" path="res://icon.svg" id="3_ftari"]
+[ext_resource type="Script" uid="uid://dba00gcoj700p" path="res://scripts/shop_item.gd" id="4_28vn7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2vha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkf4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3u7xm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woa3c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dd2jf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ku74v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm4t2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_745m4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjrwi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_olga5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13ri0"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ftari")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_right = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 128
+text = "
+GAME OVER
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 64
+text = "Cash:  100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 64
+text = "Quote:  100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 64
+text = "Luck:  100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 64
+text = "Discards:  100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 64
+text = "Max streak:  100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer" groups=["grid"]]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/h_separation = 36
+theme_override_constants/v_separation = 7
+columns = 3
+
+[node name="ShopItemPrefab2" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab3" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab4" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab5" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab6" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab7" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab8" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab9" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab10" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab11" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab12" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")
+
+[node name="ShopItemPrefab13" type="Button" parent="HBoxContainer/GridContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k2vha")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fkf4o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3u7xm")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_woa3c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dd2jf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ku74v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nm4t2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_745m4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjrwi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_olga5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13ri0")
+button_mask = 0
+icon = ExtResource("3_ftari")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("4_28vn7")

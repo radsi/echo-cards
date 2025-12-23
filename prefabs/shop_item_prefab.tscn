@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxpdl1ai0m0ll"]
+
+[ext_resource type="FontFile" uid="uid://bsucljrt1mjt" path="res://PressStart2P-vaV7.ttf" id="1_fl5pf"]
+[ext_resource type="Texture2D" uid="uid://divrki8jgm6x6" path="res://icon.svg" id="2_uqiqr"]
+[ext_resource type="Script" uid="uid://dba00gcoj700p" path="res://scripts/shop_item.gd" id="3_uqiqr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uqiqr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3a8kb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqiqr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdgwq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0nyxa"]
+
+[node name="ShopItemPrefab" type="Button"]
+texture_filter = 1
+offset_right = 480.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("1_fl5pf")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uqiqr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3a8kb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uqiqr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gdgwq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0nyxa")
+icon = ExtResource("2_uqiqr")
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+script = ExtResource("3_uqiqr")
+
+[node name="NameLabel" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.123
+anchor_right = 1.0
+anchor_bottom = 0.919
+offset_left = 0.1446228
+offset_top = -0.061328888
+offset_right = 3.0517578e-05
+offset_bottom = 0.016090393
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_fl5pf")
+theme_override_font_sizes/font_size = 36
+text = "NAME"
+
+[node name="DescLabel" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.47300002
+anchor_right = 0.87500006
+anchor_bottom = 0.919
+offset_left = 0.1446228
+offset_top = 0.029762268
+offset_right = -3.0517578e-05
+offset_bottom = 9.563675
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_fl5pf")
+theme_override_font_sizes/font_size = 24
+text = "1234567890
+1234567890
+2232323233"
+autowrap_mode = 2
+
+[node name="PriceLabel" type="Label" parent="."]
+self_modulate = Color(1, 0.78431374, 0, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.883
+anchor_top = 0.156
+anchor_right = 1.0
+anchor_bottom = 1.0380001
+offset_left = 0.16000366
+offset_top = 0.031999588
+offset_right = 3.0517578e-05
+offset_bottom = 3.1359863
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_fl5pf")
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="shadow" type="Label" parent="PriceLabel"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042000003
+anchor_right = 0.95800006
+anchor_bottom = 1.0
+offset_left = 1.4500024
+offset_top = 2.0
+offset_right = 1.4071426
+offset_bottom = 2.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_fl5pf")
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
