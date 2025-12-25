@@ -99,6 +99,8 @@ func _on_pay_button_pressed() -> void:
 	PayButton.disabled = true
 	PayButton.modulate.a = 0.5
 	
+	$payment_sfx.play()
+	
 	var twn := create_tween()
 	
 	twn.tween_property(
@@ -112,13 +114,16 @@ func _on_pay_button_pressed() -> void:
 
 
 func _on_soul_button_pressed() -> void:
+	
+	$laugh_sfx.play()
+	
 	var twn := create_tween()
 	
 	twn.tween_property(
 		TransitionBG,
 		"self_modulate",
 		Color.BLACK,
-		2
+		2.7
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 	twn.finished.connect(func(): get_tree().change_scene_to_file("res://game_over.tscn"))

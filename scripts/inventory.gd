@@ -8,4 +8,6 @@ func _ready():
 		button.pressed.connect(_on_item_pressed.bind(button))
 		
 func _on_item_pressed(button):
+	if button.visible == false: return
 	globals.remove_item(button)
+	$"../../../crunch_sfx".play()

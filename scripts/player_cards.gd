@@ -169,7 +169,7 @@ func arrange_cards(animated: bool = false):
 			card.rotation = target_rot
 
 func use_discard(card: Sprite2D):
-	if globals.used_discards >= globals.discards: return
+	if globals.used_discards >= globals.discards or globals.ending_game: return
 	globals.used_discards += 1
 	player_deck.erase(card.name)
 	player_cards.erase(card)
@@ -213,6 +213,7 @@ func _on_hit_button_pressed() -> void:
 	if globals.ending_game: return
 	player_actions.append(0)
 	spawn_cards(1, false)
+	$"../hit_sfx".play()
 
 func _on_dealer_cards_signal_restartgame() -> void:
 	restart_game()

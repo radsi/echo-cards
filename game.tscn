@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://wxy8m0gmbcvs"]
+[gd_scene load_steps=43 format=3 uid="uid://wxy8m0gmbcvs"]
 
 [ext_resource type="Script" uid="uid://btm7h66giundr" path="res://scripts/player_cards.gd" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://dsoi4mltb7ues" path="res://scripts/env_manager.gd" id="1_fc0e3"]
@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://divrki8jgm6x6" path="res://icon.svg" id="8_vef74"]
 [ext_resource type="Script" uid="uid://dba00gcoj700p" path="res://scripts/shop_item.gd" id="10_hve3p"]
 [ext_resource type="Texture2D" uid="uid://pydb4lgf73oq" path="res://deco/background_1.png" id="12_iotsf"]
+[ext_resource type="AudioStream" uid="uid://vam30asnc1xn" path="res://sounds/musicloop1.mp3" id="13_lc2xo"]
+[ext_resource type="AudioStream" uid="uid://dpl0teyt8jv7x" path="res://sounds/slidecard.wav" id="14_215e1"]
+[ext_resource type="AudioStream" uid="uid://dd2w63ktxt7p5" path="res://sounds/cha-ching.mp3" id="15_7sc4i"]
+[ext_resource type="AudioStream" uid="uid://duu72cwment5r" path="res://sounds/bonecrunch.wav" id="16_80cx4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5wjh"]
 
@@ -175,9 +179,6 @@ vertical_alignment = 1
 
 [node name="DealerCards" type="CanvasGroup" parent="."]
 script = ExtResource("5_7jktm")
-max_angle = null
-radius = null
-card_spacing = null
 
 [node name="ScoreLabel" type="Label" parent="DealerCards"]
 texture_filter = 1
@@ -235,7 +236,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="HitButton" type="Button" parent="Control"]
-self_modulate = Color(0.5568628, 1, 1, 1)
+self_modulate = Color(0, 0.72, 0.72, 1)
 z_index = -2
 layout_mode = 1
 anchors_preset = 8
@@ -479,6 +480,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ShopButton" type="Button" parent="Control/LeftPanel"]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 11
@@ -1119,6 +1121,19 @@ offset_right = 40.0
 offset_bottom = -1326.0
 scale = Vector2(50.679996, 33.640003)
 color = Color(0, 0, 0, 1)
+
+[node name="music_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_lc2xo")
+autoplay = true
+
+[node name="hit_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_215e1")
+
+[node name="buy_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_7sc4i")
+
+[node name="crunch_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_80cx4")
 
 [connection signal="signal_restartgame" from="DealerCards" to="PlayerCards" method="_on_dealer_cards_signal_restartgame"]
 [connection signal="pressed" from="Control/HitButton" to="PlayerCards" method="_on_hit_button_pressed"]

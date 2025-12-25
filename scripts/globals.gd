@@ -16,7 +16,6 @@ var cash_gain: float = 20
 var luck := 1
 var discards := 0
 var used_discards := 0
-var morphs := 0
 var streak := 0
 
 var refresh_cost := 100
@@ -27,7 +26,7 @@ var current_round := 0
 var ending_game := false
 var pending_21 := false
 
-var current_fee := 100
+var current_fee := 50
 
 var inventory := {}
 var items := {}
@@ -47,10 +46,10 @@ func _init() -> void:
 
 	item_keys = items.keys()
 
-func load_payment(transition: ColorRect):
+func load_scene_with_transition(transition: ColorRect, scene: String):
 	var twn = create_tween()
 	twn.tween_property(transition, "position", Vector2(0,0), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	twn.finished.connect(func callback() -> void: get_tree().change_scene_to_file("res://payment.tscn"))
+	twn.finished.connect(func callback() -> void: get_tree().change_scene_to_file(scene))
 
 func change_text(label: Label, new_text: String):
 	label.text = new_text
@@ -86,6 +85,13 @@ func change_stat_text(stat: String, use_value: bool = false, value: int = 0):
 func add_cash(amount: int):
 	cash += amount
 	change_stat_text("cash")
+	
+	if not tween_in_process.has(VBoxStats.get_child(1)):
+		tween_in_process.append(VBoxStats.get_child(1))
+		VBoxStats.get_child(1).self_modulate = Color.GREEN if amount > 0 else Color.RED
+		var twn := create_tween()
+		twn.tween_property(VBoxStats.get_child(1), 'self_modulate', Color.WHITE, 1)
+		twn.finished.connect(func callback() -> void: tween_in_process.erase(globals.VBoxStats.get_child(1)))
 
 func get_item_amount():
 	var amount := 0
@@ -102,7 +108,6 @@ func get_item_btn(item_id: String, grid: GridContainer = GridItems):
 
 func add_item_by_id(id: String, grid: GridContainer = GridItems):
 	var data = items[id]
-	
 	for item: Button in grid.get_children():
 		if item.visible == false:
 			item.visible = true
@@ -248,7 +253,7 @@ func generate_shop():
 	for btn: Button in VBoxItems.get_children():
 		index += 1
 		
-		if index == max_items_shop: break
+		if index == max_items_shop or index > VBoxItems.get_children().size(): break
 		
 		if btn.name.contains("Refresh"):
 			continue

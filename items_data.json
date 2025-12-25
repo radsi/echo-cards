@@ -7,6 +7,14 @@
     "values": [2],
     "rarity": 100
   },
+  "medal": {
+    "price": 100,
+    "description": "Round +1",
+    "type": "stat",
+    "stats": [5],
+    "values": [1],
+    "rarity": 80
+  },
   "lucky bone": {
     "price": 200,
     "description": "Luck +4",
@@ -16,7 +24,7 @@
     "rarity": 50
   },
   "skull": {
-    "price": 150,
+    "price": 50,
     "description": "Luck -1",
     "type": "stat",
     "stats": [2],
@@ -24,23 +32,23 @@
     "rarity": 100
   },
   "skull awake": {
-    "price": 200,
-    "description": "Luck -1 & Discards +1",
+    "price": 100,
+    "description": "Luck -1 & Discards +2",
     "type": "stat",
     "stats": [2, 3],
-    "values": [-1, 1],
+    "values": [-1, 2],
     "rarity": 50
   },
   "lollipop": {
-    "price": 250,
-    "description": "Discards + 1",
+    "price": 100,
+    "description": "Discards +1",
     "type": "stat",
     "stats": [3],
     "values": [1],
     "rarity": 90
   },
   "crown": {
-    "price": 350,
+    "price": 200,
     "description": "Cash x0.9 & Discards +1",
     "type": "stat",
     "stats": [1, 3],
@@ -48,11 +56,11 @@
     "rarity": 20
   },
   "deal": {
-    "price": 150,
-    "description": "Cash x1.25",
+    "price": 0,
+    "description": "Cash x1.05",
     "type": "stat",
     "stats": [1],
-    "values": [1.25],
+    "values": [1.05],
     "rarity": 100
   },
   "D6": {
@@ -64,7 +72,7 @@
     "rarity": 10
   },
   "horse": {
-    "price": 100,
+    "price": 50,
     "description": "Next hand is blackjack",
     "type": "trinket",
     "stats": [1],
@@ -72,7 +80,7 @@
     "rarity": 40
   },
   "white flag": {
-    "price": 150,
+    "price": 200,
     "description": "Rounds -1 & Luck +4",
     "type": "stat",
     "stats": [5, 2],
@@ -80,23 +88,23 @@
     "rarity": 60
   },
   "black flag": {
-    "price": 200,
-    "description": "Rounds +1 & Luck -2",
+    "price": 250,
+    "description": "Rounds +2 & Luck -2",
     "type": "stat",
     "stats": [5, 2],
     "values": [1, -2],
     "rarity": 60
   },
   "gold": {
-    "price": 150,
+    "price": 100,
     "description": "x1.25 cash gain",
     "type": "trinket",
     "stats": [5, 2],
     "values": [1, -2],
-    "rarity": 60
+    "rarity": 80
   },
   "briefcase": {
-    "price": 300,
+    "price": 200,
     "description": "+1 shop slot",
     "type": "trinket",
     "stats": [5, 2],

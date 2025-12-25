@@ -150,6 +150,8 @@ func restart_game():
 		globals.add_cash(cash_win + globals.streak * 2)
 	elif not draw:
 		globals.streak = 0
+	elif draw:
+		globals.add_cash(cash_win / 2)
 
 	if globals.streak > globals.max_streak:
 		globals.max_streak = globals.streak
@@ -158,7 +160,7 @@ func restart_game():
 
 	globals.current_round += 1
 	if globals.current_round > globals.max_round:
-		globals.load_payment($"../TransitionBG")
+		globals.load_scene_with_transition($"../TransitionBG", "res://payment.tscn")
 		return
 	globals.change_text(globals.RoundLabel, str(globals.current_round) + "/" + str(globals.max_round))
 		

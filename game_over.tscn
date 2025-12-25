@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://48drlbnnbbwk"]
+[gd_scene load_steps=23 format=3 uid="uid://48drlbnnbbwk"]
 
 [ext_resource type="Script" uid="uid://dsoi4mltb7ues" path="res://scripts/env_manager.gd" id="1_ftari"]
 [ext_resource type="FontFile" uid="uid://bsucljrt1mjt" path="res://PressStart2P-vaV7.ttf" id="1_y26ei"]
 [ext_resource type="Texture2D" uid="uid://divrki8jgm6x6" path="res://icon.svg" id="3_ftari"]
 [ext_resource type="Script" uid="uid://dba00gcoj700p" path="res://scripts/shop_item.gd" id="4_28vn7"]
+[ext_resource type="AudioStream" uid="uid://kbcndvy8w8vt" path="res://sounds/bassimpact.wav" id="5_ftari"]
+[ext_resource type="Texture2D" uid="uid://cnh7p8837d1uf" path="res://buttons/button-long.png" id="6_28vn7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2vha"]
 
@@ -27,6 +29,16 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13ri0"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmfuw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k7c8f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0fv6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhou3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xhsb"]
+
 [node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -47,11 +59,14 @@ color = Color(0, 0, 0, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.022000002
+anchor_right = 1.0220001
 anchor_bottom = 1.0
-offset_left = 42.0
-offset_right = 42.0
+offset_left = -0.24000168
+offset_top = -184.0
+offset_right = -0.2401123
+offset_bottom = -184.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -415,3 +430,81 @@ flat = true
 alignment = 0
 text_overrun_behavior = 3
 script = ExtResource("4_28vn7")
+
+[node name="game_over_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ftari")
+autoplay = true
+
+[node name="RestartButton" type="Button" parent="."]
+self_modulate = Color(0.37, 0.37, 0.37, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -84.0
+offset_right = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(94, 46)
+theme_override_colors/icon_pressed_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lmfuw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k7c8f")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y0fv6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jhou3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3xhsb")
+icon = ExtResource("6_28vn7")
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="RestartButton"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.600006
+offset_top = -17.600006
+offset_right = 46.399994
+offset_bottom = 14.399994
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 16)
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 32
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="RestartButton/ButtonLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 103.000015
+offset_bottom = 35.0
+pivot_offset = Vector2(48, 16)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_y26ei")
+theme_override_font_sizes/font_size = 32
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransitionBG" type="ColorRect" parent="."]
+z_index = 15
+layout_mode = 0
+offset_top = -1277.0
+offset_right = 40.0
+offset_bottom = -1237.0
+scale = Vector2(49.35224, 31.214497)
+color = Color(0, 0, 0, 1)

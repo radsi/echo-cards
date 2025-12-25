@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://maeu508jng2e"]
+[gd_scene load_steps=21 format=3 uid="uid://maeu508jng2e"]
 
 [ext_resource type="Script" uid="uid://4rb3rx1n7n0f" path="res://scripts/payment_manager.gd" id="1_7mjkq"]
 [ext_resource type="Texture2D" uid="uid://drddckqx0v40j" path="res://deco/devil.png" id="1_mqal0"]
@@ -8,6 +8,9 @@
 [ext_resource type="Shader" uid="uid://cxdqnkjkxbe5a" path="res://chat.gdshader" id="4_w8rcl"]
 [ext_resource type="Texture2D" uid="uid://7hfjfok3e08f" path="res://deco/hand_right.png" id="5_prf03"]
 [ext_resource type="Texture2D" uid="uid://cnh7p8837d1uf" path="res://buttons/button-long.png" id="8_a30yt"]
+[ext_resource type="AudioStream" uid="uid://bvlounmcae8e7" path="res://sounds/payment.wav" id="9_efqod"]
+[ext_resource type="AudioStream" uid="uid://hejlhqcpvm3s" path="res://sounds/evillaugh.mp3" id="10_8xnvv"]
+[ext_resource type="AudioStream" uid="uid://gx4m6xs6v0ml" path="res://sounds/payment-music.mp3" id="11_8xnvv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mqal0"]
 
@@ -261,6 +264,16 @@ theme_override_font_sizes/font_size = 32
 text = "SOUL"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="payment_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_efqod")
+
+[node name="laugh_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_8xnvv")
+
+[node name="music_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_8xnvv")
+autoplay = true
 
 [connection signal="pressed" from="Control/HBoxContainer/PayButton" to="." method="_on_pay_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/SoulButton" to="." method="_on_soul_button_pressed"]

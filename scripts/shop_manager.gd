@@ -4,11 +4,9 @@ extends ColorRect
 var shop_open: bool = false
 
 func _ready():
-	position.x = -406
 	globals.VBoxItems = $VBoxContainer
 	globals.GridItems = $"../RightPanel/GridContainer"
 	globals.VBoxStats = $"../RightPanel/VBoxContainer"
-	globals.VBoxItems.visible = false
 	globals.RoundLabel = $"../../PlayerCards/RoundsLabel"
 
 	for btn: Button in globals.VBoxItems.get_children():
@@ -24,18 +22,14 @@ func buy_item(btn: Button):
 	if globals.get_item_amount() >= 12: return
 	
 	if btn.price > globals.cash:
-		if not globals.tween_in_process.has(globals.VBoxStats.get_child(1)):
-			globals.tween_in_process.append(globals.VBoxStats.get_child(1))
-			globals.VBoxStats.get_child(1).self_modulate = Color.RED
-			var twn := create_tween()
-			twn.tween_property(globals.VBoxStats.get_child(1), 'self_modulate', Color.WHITE, 1)
-			twn.finished.connect(func callback() -> void: globals.tween_in_process.erase(globals.VBoxStats.get_child(1)))
 		return
 	
 	btn.visible = false
 	
 	globals.add_cash(-btn.price)
 	globals.add_item(btn)
+	
+	$"../../buy_sfx".play()
 
 
 func _on_refresh_button_pressed() -> void:

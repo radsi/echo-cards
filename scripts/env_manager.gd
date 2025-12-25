@@ -25,6 +25,7 @@ func _ready() -> void:
 		GameOver.get_child(3).text = "Luck: " + str(globals.luck)
 		GameOver.get_child(4).text = "Discards: " + str(globals.discards)
 		GameOver.get_child(5).text = "Max streak: " + str(globals.max_streak)
+		$RestartButton.pressed.connect(_on_restart_button_pressed)
 
 func _collect_labels(node: Node, out: Array[Label]) -> void:
 	if node is Label and not node.name.contains("shadow"):
@@ -58,3 +59,15 @@ func _animate_label(label: Label, index: int) -> void:
 		base_y,
 		duration
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+func _on_restart_button_pressed():
+	globals.luck = 1
+	globals.cash = 100
+	globals.discards = 0
+	globals.max_streak = 0
+	globals.streak = 0
+	globals.inventory.clear()
+	globals.cash_gain = 20
+	globals.current_fee = 50
+	globals.load_scene_with_transition($TransitionBG, "res://game.tscn")
