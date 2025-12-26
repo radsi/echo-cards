@@ -1,10 +1,10 @@
 {
   "clover": {
-    "price": 100,
-    "description": "Luck +2",
+    "price": 50,
+    "description": "Luck +1",
     "type": "stat",
     "stats": [2],
-    "values": [2],
+    "values": [1],
     "rarity": 100
   },
   "medal": {
@@ -37,7 +37,7 @@
     "type": "stat",
     "stats": [2, 3],
     "values": [-1, 2],
-    "rarity": 50
+    "rarity": 80
   },
   "lollipop": {
     "price": 100,
@@ -47,6 +47,14 @@
     "values": [1],
     "rarity": 90
   },
+  "deal": {
+    "price": 75,
+    "description": "Dark chance +2%",
+    "type": "trinket",
+    "stats": [3],
+    "values": [1],
+    "rarity": 70
+  },
   "crown": {
     "price": 200,
     "description": "Cash x0.9 & Discards +1",
@@ -54,14 +62,6 @@
     "stats": [1, 3],
     "values": [0.9, 1],
     "rarity": 20
-  },
-  "deal": {
-    "price": 0,
-    "description": "Cash x1.05",
-    "type": "stat",
-    "stats": [1],
-    "values": [1.05],
-    "rarity": 100
   },
   "D6": {
     "price": 300,
@@ -77,7 +77,7 @@
     "type": "trinket",
     "stats": [1],
     "values": [1.25],
-    "rarity": 40
+    "rarity": 70
   },
   "white flag": {
     "price": 200,

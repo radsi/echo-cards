@@ -147,7 +147,7 @@ func restart_game():
 
 	if win:
 		globals.streak += 1
-		globals.add_cash(cash_win + globals.streak * 2)
+		globals.add_cash(cash_win + globals.streak * 2 + PlayerCards.dark_count * 10)
 	elif not draw:
 		globals.streak = 0
 	elif draw:

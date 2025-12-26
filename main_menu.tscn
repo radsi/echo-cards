@@ -1,0 +1,134 @@
+[gd_scene load_steps=12 format=3 uid="uid://ckb23712hvews"]
+
+[ext_resource type="Script" uid="uid://dsoi4mltb7ues" path="res://scripts/env_manager.gd" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://pydb4lgf73oq" path="res://deco/background_1.png" id="2_fu7sn"]
+[ext_resource type="FontFile" uid="uid://bsucljrt1mjt" path="res://PressStart2P-vaV7.ttf" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://c5y334dhp00q6" path="res://cards/light/A-H.png" id="4_jix8l"]
+[ext_resource type="Texture2D" uid="uid://cqrjhx4133x5u" path="res://cards/light/K-D.png" id="5_glbon"]
+[ext_resource type="AudioStream" uid="uid://vam30asnc1xn" path="res://sounds/musicloop1.mp3" id="6_nlkkf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glbon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlkkf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qe12f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8qtwp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dy7ct"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vrkn")
+
+[node name="Background1" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.54901963)
+z_index = -10
+position = Vector2(975.0002, 780.00006)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("2_fu7sn")
+
+[node name="Background2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.54901963)
+z_index = -10
+position = Vector2(975, -780.00006)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("2_fu7sn")
+
+[node name="TransitionBG" type="ColorRect" parent="."]
+z_index = 15
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.2650001
+anchor_right = 1.056
+anchor_bottom = -0.019000001
+offset_top = 0.20007324
+offset_right = -1987.52
+offset_bottom = -1305.48
+scale = Vector2(50.679996, 33.640003)
+color = Color(0, 0, 0, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+z_index = 10
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 133.0
+offset_bottom = 197.0
+grow_horizontal = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_fu7sn")
+theme_override_font_sizes/font_size = 104
+text = "ECHO CARDS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="TitleLabel"]
+z_index = -10
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -37.0
+offset_right = 87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 40)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fu7sn")
+theme_override_font_sizes/font_size = 104
+text = "ECHO CARDS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43800002
+anchor_top = 0.36400002
+anchor_right = 0.56200004
+anchor_bottom = 0.67700005
+offset_left = 24.039978
+offset_top = 11.879974
+offset_right = -24.04004
+offset_bottom = -56.160034
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(94, 46)
+theme_override_colors/icon_pressed_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_glbon")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nlkkf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qe12f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8qtwp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dy7ct")
+icon = ExtResource("4_jix8l")
+flat = true
+
+[node name="KD" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(960.5, 562.5)
+scale = Vector2(1.2473683, 1.2481482)
+texture = ExtResource("5_glbon")
+
+[node name="music_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_nlkkf")
+autoplay = true
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

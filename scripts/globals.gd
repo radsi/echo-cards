@@ -1,7 +1,5 @@
 extends Node
 
-var first_time := true
-
 var GridItems
 var VBoxItems
 var VBoxStats
@@ -24,7 +22,8 @@ var max_round := 6
 var max_streak := 0
 var current_round := 0
 var ending_game := false
-var pending_21 := false
+var pending_21 := 0
+var dark_chance := 0
 
 var current_fee := 50
 
@@ -130,10 +129,10 @@ func add_item(btn: Button):
 	
 	if btn.item_id == "D6": return
 	
-	inventory[btn.item_id] = [
+	inventory.get_or_add(btn.item_id, []).append([
 		btn.stats.duplicate(),
 		btn.stats_effect.duplicate()
-	]
+	])
 	
 	for item: Button in GridItems.get_children():
 		if item.visible == false:
@@ -242,7 +241,12 @@ func remove_item(btn: Button):
 				twn.finished.connect(func callback() -> void: tween_in_process.erase(current_stat))
 
 	btn.visible = false
-	inventory.erase(btn.item_id)
+	
+	if inventory.has(btn.item_id):
+		inventory[btn.item_id].pop_back()
+
+		if inventory[btn.item_id].is_empty():
+			inventory.erase(btn.item_id)
 
 func execute_trinket(id: String):
 	if has_method(id):
@@ -346,10 +350,10 @@ func D6():
 		item.icon = load("res://items/%s.png" % id)
 
 func horse():
-	pending_21 = true
+	pending_21 += 1
 
 func horse_remove():
-	pending_21 = false
+	pending_21 -= 1
 
 func gold():
 	cash_gain *= 1.25
@@ -362,3 +366,9 @@ func briefcase():
 
 func briefcase_remove():
 	max_items_shop -= 1
+
+func deal():
+	dark_chance += 5
+	
+func deal_remove():
+	dark_chance -= 5

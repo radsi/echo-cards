@@ -8,6 +8,7 @@ extends Node
 @onready var PayButton: Button = $Control/HBoxContainer/PayButton
 
 func _ready() -> void:
+	TransitionBG.position = Vector2.ZERO
 	globals.current_round = 0
 	globals.change_text(PayButton.get_child(0), str(globals.cash) + "/" + str(globals.current_fee))
 	

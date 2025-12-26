@@ -20,15 +20,13 @@ var deck: Array[String] = []
 var player_deck: Array[String] = []
 var player_cards: Array[Sprite2D] = []
 var player_actions: Array[int] = []
+var dark_count := 0
 
 func _ready() -> void:
 	
-	if not globals.first_time:
-		$"../TransitionBG".position = Vector2.ZERO
-		var twn = create_tween()
-		twn.tween_property($"../TransitionBG", "position", Vector2(0,-1366), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	else:
-		globals.first_time = false
+	$"../TransitionBG".position = Vector2.ZERO
+	var twn = create_tween()
+	twn.tween_property($"../TransitionBG", "position", Vector2(0,-1366), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 	globals.used_discards = 0
 	await get_tree().process_frame
@@ -54,9 +52,14 @@ func _get_card_value(card: String) -> int:
 		return card.split("-")[0].to_int()
 
 func spawn_cards(amount: int, first: bool = true) -> void:
+	
+	if (randi() % 101) < globals.dark_chance:
+		dark_mode = true 
+		dark_count += 1
+	
 	var cards_to_spawn: Array = []
 
-	if globals.pending_21 and first:
+	if globals.pending_21 > 0 and first:
 		globals.remove_item(globals.get_item_btn("horse"))
 		player_deck.clear()
 		cards_to_spawn = ["A-H", "K-H"]
@@ -118,6 +121,8 @@ func spawn_cards(amount: int, first: bool = true) -> void:
 
 	_update_score()
 	arrange_cards(true)
+	
+	dark_mode = false
 
 func _update_score():
 	globals.player_score = 0
@@ -206,6 +211,8 @@ func restart_game():
 	
 	HitButton.disabled = false
 	HitButton.modulate.a = 1
+
+	dark_count = 0
 
 	spawn_cards(2)
 

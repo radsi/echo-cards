@@ -44,8 +44,10 @@ script = ExtResource("1_7mjkq")
 
 [node name="TransitionBG" type="ColorRect" parent="."]
 z_index = 15
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -2286.0002
+offset_top = -274.0
+offset_right = -2246.0002
+offset_bottom = -234.0
 scale = Vector2(49.35224, 31.214497)
 color = Color(0, 0, 0, 1)
 
