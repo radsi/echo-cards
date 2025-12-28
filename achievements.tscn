@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://65ea2c8upemh"]
+
+[ext_resource type="Script" uid="uid://dsoi4mltb7ues" path="res://scripts/env_manager.gd" id="1_e00ml"]
+[ext_resource type="Texture2D" uid="uid://pydb4lgf73oq" path="res://deco/background_1.png" id="2_bnact"]
+[ext_resource type="Texture2D" uid="uid://c7uch45hkma4m" path="res://buttons/button-arrow.png" id="3_rvr50"]
+[ext_resource type="FontFile" uid="uid://bsucljrt1mjt" path="res://PressStart2P-vaV7.ttf" id="4_u4g45"]
+[ext_resource type="Script" uid="uid://dqhch0awei337" path="res://scripts/achievements_manager.gd" id="5_u4g45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h64ow"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dvwe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12gql"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgvem"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4oqj"]
+
+[node name="Achievements" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e00ml")
+
+[node name="Background1" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.54901963)
+z_index = -10
+position = Vector2(975.0002, 780.00006)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("2_bnact")
+
+[node name="Background2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.54901963)
+z_index = -10
+position = Vector2(975, -780.00006)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("2_bnact")
+
+[node name="TransitionBG" type="ColorRect" parent="."]
+z_index = 15
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.2650001
+anchor_right = 1.056
+anchor_bottom = -0.019000001
+offset_top = 0.20007324
+offset_right = -1987.52
+offset_bottom = -1305.48
+scale = Vector2(50.679996, 33.640003)
+color = Color(0, 0, 0, 1)
+
+[node name="BackButton" type="Button" parent="."]
+self_modulate = Color(0.37, 0.37, 0.37, 1)
+texture_filter = 1
+layout_mode = 1
+offset_left = 59.999996
+offset_top = 51.999996
+offset_right = 340.0
+offset_bottom = 136.0
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(94, 46)
+theme_override_colors/icon_pressed_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+theme_override_colors/icon_hover_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h64ow")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2dvwe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_12gql")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sgvem")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l4oqj")
+icon = ExtResource("3_rvr50")
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="BackButton"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.399994
+offset_top = -17.599995
+offset_right = 79.600006
+offset_bottom = 14.400005
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 16)
+theme_override_fonts/font = ExtResource("4_u4g45")
+theme_override_font_sizes/font_size = 32
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow" type="Label" parent="BackButton/ButtonLabel"]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 103.000015
+offset_bottom = 35.0
+pivot_offset = Vector2(48, 16)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_u4g45")
+theme_override_font_sizes/font_size = 32
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 295.0
+offset_top = 239.0
+offset_right = 295.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+script = ExtResource("5_u4g45")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

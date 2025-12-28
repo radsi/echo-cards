@@ -23,11 +23,6 @@ var player_actions: Array[int] = []
 var dark_count := 0
 
 func _ready() -> void:
-	
-	$"../TransitionBG".position = Vector2.ZERO
-	var twn = create_tween()
-	twn.tween_property($"../TransitionBG", "position", Vector2(0,-1366), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	
 	globals.used_discards = 0
 	await get_tree().process_frame
 	globals.change_stat_text("cash")
@@ -202,6 +197,9 @@ func restart_game():
 		if is_instance_valid(c):
 			c.queue_free()
 
+	if globals.player_score == 21 and player_cards.size() == 2:
+		globals.unlock_item("horse")
+
 	player_cards.clear()
 	player_deck.clear()
 	deck.clear()
@@ -217,7 +215,7 @@ func restart_game():
 	spawn_cards(2)
 
 func _on_hit_button_pressed() -> void:
-	if globals.ending_game: return
+	if globals.ending_game or $"..".rotate_item: return
 	player_actions.append(0)
 	spawn_cards(1, false)
 	$"../hit_sfx".play()

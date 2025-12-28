@@ -29,11 +29,22 @@ var current_fee := 50
 
 var inventory := {}
 var items := {}
-var item_keys := []
 
 var tween_in_process: Array[Node] = []
 
+var cfg := ConfigFile.new()
+var unlocked_items := ["clover", "medal", "skull", "lollipop", "white flag", "black flag"]
+var items_pending_to_show := []
+var save_path := "user://save.cfg"
+
 func _init() -> void:
+	if FileAccess.file_exists(save_path):
+		cfg.load(save_path)
+		unlocked_items = cfg.get_value("unlocks", "items", unlocked_items)
+	else:
+		cfg.set_value("unlocks", "items", unlocked_items)
+		cfg.save(save_path)
+	
 	var path = "res://items_data.json"
 	var file = FileAccess.open(path, FileAccess.READ)
 	if file == null:
@@ -43,7 +54,15 @@ func _init() -> void:
 	items = JSON.parse_string(file.get_as_text())
 	file.close()
 
-	item_keys = items.keys()
+func unlock_item(item_id: String):
+	if unlocked_items.has(item_id):
+		return
+
+	unlocked_items.append(item_id)
+	items_pending_to_show.append(item_id)
+
+	cfg.set_value("unlocks", "items", unlocked_items)
+	cfg.save(save_path)
 
 func load_scene_with_transition(transition: ColorRect, scene: String):
 	var twn = create_tween()
@@ -295,16 +314,16 @@ func pick_item_by_rarity() -> String:
 	else:
 		min_rarity = 90
 
-	for id in item_keys:
+	for id in unlocked_items:
 		if items[id].rarity >= min_rarity:
 			eligible_items.append(id)
 
 	if eligible_items.is_empty():
 		var max_rarity := 0
-		for id in item_keys:
+		for id in unlocked_items:
 			if items[id].rarity > max_rarity:
 				max_rarity = items[id].rarity
-		for id in item_keys:
+		for id in unlocked_items:
 			if items[id].rarity == max_rarity:
 				eligible_items.append(id)
 

@@ -111,6 +111,8 @@ func _on_pay_button_pressed() -> void:
 		1.5
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
+	globals.unlock_item("gold")
+	
 	twn.finished.connect(func(): get_tree().change_scene_to_file("res://game.tscn"); globals.current_fee += globals.current_fee / 5)
 
 
@@ -126,5 +128,7 @@ func _on_soul_button_pressed() -> void:
 		Color.BLACK,
 		2.7
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	globals.unlock_item("deal")
 
 	twn.finished.connect(func(): get_tree().change_scene_to_file("res://game_over.tscn"))

@@ -193,6 +193,6 @@ func show_cards():
 	emit_signal("signal_restartgame")
 
 func _on_stand_button_pressed() -> void:
-	if globals.ending_game: return
+	if globals.ending_game or $"..".rotate_item: return
 	globals.ending_game = true
 	show_cards()

@@ -19,7 +19,7 @@ func _on_item_pressed(button):
 	buy_item(button)
 
 func buy_item(btn: Button):
-	if globals.get_item_amount() >= 12: return
+	if globals.get_item_amount() >= 12 or $"../..".rotate_item: return
 	
 	if btn.price > globals.cash:
 		return
@@ -30,7 +30,20 @@ func buy_item(btn: Button):
 	globals.add_item(btn)
 	
 	$"../../buy_sfx".play()
-
+	
+	if globals.luck < 0:
+		globals.unlock_item("skull awake")
+	elif globals.luck == 4:
+		globals.unlock_item("lucky bone")
+	
+	if globals.VBoxItems.get_children().filter(func(c): return c.visible).size() == 0:
+		globals.unlock_item("briefcase")
+	
+	if globals.discards == 1 and globals.cash > 200:
+		globals.unlock_item("crown")
+	
+	if globals.inventory.size() > 3:
+		globals.unlock_item("D6")
 
 func _on_refresh_button_pressed() -> void:
 	if globals.refresh_cost > globals.cash:

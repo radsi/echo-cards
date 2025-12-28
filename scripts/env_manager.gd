@@ -3,7 +3,16 @@ extends Node
 @onready var GameOver: VBoxContainer = $HBoxContainer/VBoxContainer
 @onready var BGs: Array[Sprite2D] = [$Background1, $Background2] 
 
+var rotate_item := false
+var t := 0.0
+var click_cooldown := 0
+
 func _ready() -> void:
+	if not is_instance_valid(GameOver):
+		$TransitionBG.position = Vector2.ZERO
+		var twn = create_tween()
+		twn.tween_property($TransitionBG, "position", Vector2(0,-1366), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
 	var labels: Array[Label] = []
 	_collect_labels(self, labels)
 	
@@ -31,6 +40,16 @@ func _ready() -> void:
 		GameOver.get_child(4).text = "Discards: " + str(globals.discards)
 		GameOver.get_child(5).text = "Max streak: " + str(globals.max_streak)
 		$RestartButton.pressed.connect(_on_restart_button_pressed)
+	elif is_instance_valid($buy_sfx):
+		show_new_items()
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and is_instance_valid($buy_sfx):
+		
+		if click_cooldown > Time.get_unix_time_from_system(): return
+		
+		click_cooldown = Time.get_unix_time_from_system() + 2
+		show_new_items()
 		
 func _process(delta: float) -> void:
 	if not is_instance_valid(BGs[0]): return
@@ -41,6 +60,10 @@ func _process(delta: float) -> void:
 	for bg in BGs:
 		if bg.position.y >= 1860:
 			bg.position.y = -1260
+	
+	if rotate_item:
+		t += delta
+		$New/Item.scale.x = sin(t) * 3.0
 
 func _collect_labels(node: Node, out: Array[Label]) -> void:
 	if node is Label and not node.name.contains("shadow"):
@@ -75,6 +98,32 @@ func _animate_label(label: Label, index: int) -> void:
 		duration
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
+func show_new_items():
+	if globals.items_pending_to_show.size() < 1:
+		var twn := create_tween()
+		twn.tween_property(
+			$New,
+			"position",
+			Vector2(960, -392),
+			1.5
+		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		twn.finished.connect(func(): rotate_item = false)
+		return
+	
+	if rotate_item == false:
+		rotate_item = true
+	
+		var twn := create_tween()
+		twn.tween_property(
+			$New,
+			"position",
+			Vector2(960, 580),
+			1.5
+		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	$New/Item.texture = load("res://items/%s.png" % globals.items_pending_to_show[0])
+	globals.items_pending_to_show.remove_at(0)
+	$reveal_sfx.play()
 
 func _on_restart_button_pressed():
 	globals.luck = 1
@@ -126,3 +175,13 @@ func _on_play_button_pressed() -> void:
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
 	tween4.finished.connect(func(): globals.load_scene_with_transition($TransitionBG, "res://game.tscn"))
+
+
+func _on_achv_button_pressed() -> void:
+	$PlayButton.button_mask = MOUSE_BUTTON_NONE
+	globals.load_scene_with_transition($TransitionBG, "res://achievements.tscn")
+
+
+func _on_back_button_pressed() -> void:
+	$BackButton.button_mask = MOUSE_BUTTON_NONE
+	globals.load_scene_with_transition($TransitionBG, "res://main_menu.tscn")

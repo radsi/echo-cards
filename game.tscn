@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://wxy8m0gmbcvs"]
+[gd_scene load_steps=46 format=3 uid="uid://wxy8m0gmbcvs"]
 
 [ext_resource type="Script" uid="uid://btm7h66giundr" path="res://scripts/player_cards.gd" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://dsoi4mltb7ues" path="res://scripts/env_manager.gd" id="1_fc0e3"]
@@ -16,6 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://dpl0teyt8jv7x" path="res://sounds/slidecard.wav" id="14_215e1"]
 [ext_resource type="AudioStream" uid="uid://dd2w63ktxt7p5" path="res://sounds/cha-ching.mp3" id="15_7sc4i"]
 [ext_resource type="AudioStream" uid="uid://duu72cwment5r" path="res://sounds/bonecrunch.wav" id="16_80cx4"]
+[ext_resource type="Texture2D" uid="uid://b0fhqxxsuf53b" path="res://items/NEW.png" id="17_e8heu"]
+[ext_resource type="Texture2D" uid="uid://bvncqqkeythe7" path="res://items/deal.png" id="18_rvswv"]
+[ext_resource type="AudioStream" uid="uid://ci1npjsqbmvpu" path="res://sounds/reveal.wav" id="19_boyg6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5wjh"]
 
@@ -1141,6 +1144,22 @@ stream = ExtResource("15_7sc4i")
 
 [node name="crunch_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_80cx4")
+
+[node name="New" type="Sprite2D" parent="."]
+modulate = Color(0.8460439, 0.84604394, 0.8460439, 1)
+z_index = 20
+texture_filter = 1
+position = Vector2(960, -392)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("17_e8heu")
+
+[node name="Item" type="Sprite2D" parent="New"]
+scale = Vector2(3, 3)
+texture = ExtResource("18_rvswv")
+
+[node name="reveal_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_boyg6")
+volume_db = -15.0
 
 [connection signal="signal_restartgame" from="DealerCards" to="PlayerCards" method="_on_dealer_cards_signal_restartgame"]
 [connection signal="pressed" from="Control/HitButton" to="PlayerCards" method="_on_hit_button_pressed"]
